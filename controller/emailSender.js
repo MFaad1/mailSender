@@ -18,13 +18,13 @@ const transporter = nodemailer.createTransport({
 
   
   exports.sendEmailHandler = async(req, res)=> {
-    const { name, email, message } = req.body;
+    const { name, email, message,subject } = req.body;
     console.log(process.env.user, "seruser mail", process.env.pass)
 
     const mailOptions = {
       from: email,
       to: process.env.user,
-      subject: 'New message from contact form',
+      subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
   
